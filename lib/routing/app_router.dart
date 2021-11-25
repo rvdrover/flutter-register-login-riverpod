@@ -5,8 +5,6 @@ import 'package:riverpod_flutter_register_login_firebase/app/sign_in/email_passw
 
 class AppRoutes {
   static const emailPasswordSignInPage = '/email-password-sign-in-page';
-  static const editJobPage = '/edit-job-page';
-  static const entryPage = '/entry-page';
 }
 
 class AppRouter {
