@@ -36,7 +36,6 @@ dependencies:
   cupertino_icons: ^1.0.2
   firebase_auth: ^3.2.0
   flutter_riverpod: ^1.0.0
-  flutter_svg: ^0.23.0+1
   shared_preferences: ^2.0.9
 
 dev_dependencies:
@@ -62,8 +61,8 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  assets:
-    - assets/time-tracking.svg
+  # assets:
+  #   - assets/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
