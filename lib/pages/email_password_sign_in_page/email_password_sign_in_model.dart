@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:riverpod_flutter_register_login_firebase/pages/sign_in/string_validater.dart';
+import 'package:riverpod_flutter_register_login_firebase/pages/email_password_sign_in_page/string_validater.dart';
 
 import 'email_password_sign_in_string.dart';
 

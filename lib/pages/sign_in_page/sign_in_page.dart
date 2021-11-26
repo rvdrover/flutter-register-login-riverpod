@@ -3,14 +3,14 @@ import 'dart:math';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:riverpod_flutter_register_login_firebase/common_widgets/alert_widgets/exception_alert_dialog.dart';
-import 'package:riverpod_flutter_register_login_firebase/pages/sign_in/sign_in_view_model.dart';
+import 'package:riverpod_flutter_register_login_firebase/pages/sign_in_page/sign_in_button.dart';
+import 'package:riverpod_flutter_register_login_firebase/pages/sign_in_page/sign_in_view_model.dart';
 import 'package:riverpod_flutter_register_login_firebase/providers/top_level_providers.dart';
 import 'package:riverpod_flutter_register_login_firebase/constants/keys.dart';
 import 'package:riverpod_flutter_register_login_firebase/constants/strings.dart';
 import 'package:riverpod_flutter_register_login_firebase/routing/app_router.dart';
+import 'package:riverpod_flutter_register_login_firebase/widgets/alerts/exception_alert_dialog.dart';
 
-import 'sign_in_button.dart';
 
 final signInModelProvider = ChangeNotifierProvider<SignInViewModel>(
   (ref) => SignInViewModel(auth: ref.watch(firebaseAuthProvider)),
