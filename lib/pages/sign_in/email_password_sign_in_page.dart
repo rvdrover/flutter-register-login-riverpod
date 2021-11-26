@@ -4,9 +4,9 @@ import 'dart:math';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:riverpod_flutter_register_login_firebase/common_widgets/alert_dialogs.dart';
-import 'package:riverpod_flutter_register_login_firebase/common_widgets/exception_alert_dialog.dart';
-import 'package:riverpod_flutter_register_login_firebase/common_widgets/form_submit_button.dart';
+import 'package:riverpod_flutter_register_login_firebase/common_widgets/alert_widgets/alert_dialogs.dart';
+import 'package:riverpod_flutter_register_login_firebase/common_widgets/alert_widgets/exception_alert_dialog.dart';
+import 'package:riverpod_flutter_register_login_firebase/common_widgets/buttons/form_submit_button.dart';
 
 import 'email_password_sign_in_model.dart';
 import 'email_password_sign_in_string.dart';

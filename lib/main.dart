@@ -4,10 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_flutter_register_login_firebase/routing/app_router.dart';
 
-import 'app/auth_widget.dart';
-import 'app/home/account/account_page.dart';
-import 'app/sign_in/sign_in_page.dart';
-import 'app/top_level_providers.dart';
+import 'pages/account_page/account_page.dart';
+import 'pages/sign_in/sign_in_page.dart';
+import 'pages/sign_in/widgets/auth_widget.dart';
+import 'providers/top_level_providers.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();

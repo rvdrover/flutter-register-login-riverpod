@@ -1,7 +1,7 @@
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:riverpod_flutter_register_login_firebase/app/sign_in/email_password_sign_in_page.dart';
+import 'package:riverpod_flutter_register_login_firebase/pages/sign_in/email_password_sign_in_page.dart';
 
 class AppRoutes {
   static const emailPasswordSignInPage = '/email-password-sign-in-page';

@@ -3,10 +3,10 @@ import 'dart:async';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter/material.dart';
-import 'package:riverpod_flutter_register_login_firebase/app/top_level_providers.dart';
-import 'package:riverpod_flutter_register_login_firebase/common_widgets/alert_dialogs.dart';
+import 'package:riverpod_flutter_register_login_firebase/common_widgets/alert_widgets/alert_dialogs.dart';
+import 'package:riverpod_flutter_register_login_firebase/common_widgets/alert_widgets/exception_alert_dialog.dart';
+import 'package:riverpod_flutter_register_login_firebase/providers/top_level_providers.dart';
 import 'package:riverpod_flutter_register_login_firebase/common_widgets/avatar.dart';
-import 'package:riverpod_flutter_register_login_firebase/common_widgets/exception_alert_dialog.dart';
 import 'package:riverpod_flutter_register_login_firebase/constants/keys.dart';
 import 'package:riverpod_flutter_register_login_firebase/constants/strings.dart';
 

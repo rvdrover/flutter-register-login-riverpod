@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:riverpod_flutter_register_login_firebase/common_widgets/custom_elevated_button.dart';
+import 'package:riverpod_flutter_register_login_firebase/common_widgets/buttons/custom_elevated_button.dart';
 
 class SignInButton extends CustomElevatedButton {
   SignInButton({
