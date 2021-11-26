@@ -10,9 +10,12 @@ enum EmailPasswordSignInFormType { signIn, register, forgotPassword }
 class EmailAndPasswordValidators {
   final TextInputFormatter emailInputFormatter =
       ValidatorInputFormatter(editingValidator: EmailEditingRegexValidator());
+
   final StringValidator emailSubmitValidator = EmailSubmitRegexValidator();
+  
   final StringValidator passwordRegisterSubmitValidator =
       MinLengthStringValidator(8);
+
   final StringValidator passwordSignInSubmitValidator =
       NonEmptyStringValidator();
 }

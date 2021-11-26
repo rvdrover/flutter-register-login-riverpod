@@ -12,7 +12,10 @@ import 'providers/top_level_providers.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  runApp(const ProviderScope(child:MyApp() ,), 
+  runApp(
+    const ProviderScope(
+      child: MyApp(),
+    ),
   );
 }
 
@@ -26,11 +29,7 @@ class MyApp extends ConsumerWidget {
       theme: ThemeData(primarySwatch: Colors.indigo),
       debugShowCheckedModeBanner: false,
       home: AuthWidget(
-        nonSignedInBuilder: (_) => Consumer(
-          builder: (context, ref, _) {
-            return const SignInPage();
-          },
-        ),
+        nonSignedInBuilder: (_) => const SignInPage(),
         signedInBuilder: (_) => const AccountPage(),
       ),
       onGenerateRoute: (settings) =>

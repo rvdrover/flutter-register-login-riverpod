@@ -47,6 +47,8 @@ class SignInPageContents extends StatelessWidget {
 
   static const Key emailPasswordButtonKey = Key(Keys.emailPassword);
   static const Key anonymousButtonKey = Key(Keys.anonymous);
+  static const Key googlesignButtonKey = Key(Keys.googleSign);
+  static const Key facebookSignButtonKey = Key(Keys.facebookSign);
 
   Future<void> _showEmailPasswordSignInPage(BuildContext context) async {
     final navigator = Navigator.of(context);
@@ -107,6 +109,26 @@ class SignInPageContents extends StatelessWidget {
                 color: Theme.of(context).primaryColor,
               ),
               const SizedBox(height: 8),
+             
+              SignInButton(
+                key: googlesignButtonKey,
+                text: Strings.signinWithGoogle,
+                color: Theme.of(context).primaryColor,
+                textColor: Colors.white,
+                onPressed:
+                    viewModel.isLoading ? null : viewModel.signInWithFacebook,
+              ),
+              const SizedBox(height: 8),
+             
+              SignInButton(
+                key: facebookSignButtonKey,
+                text: Strings.signinWithFacebook,
+                color: Theme.of(context).primaryColor,
+                textColor: Colors.white,
+                onPressed:
+                    viewModel.isLoading ? null : viewModel.signInAnonymously,
+              ),
+              const SizedBox(height: 8),
               const Text(
                 Strings.or,
                 style: TextStyle(fontSize: 14.0, color: Colors.black87),
@@ -115,7 +137,7 @@ class SignInPageContents extends StatelessWidget {
               const SizedBox(height: 8),
               SignInButton(
                 key: anonymousButtonKey,
-                text: Strings.goAnonymous,
+                text: Strings.signAnonymous,
                 color: Theme.of(context).primaryColor,
                 textColor: Colors.white,
                 onPressed:
@@ -128,3 +150,5 @@ class SignInPageContents extends StatelessWidget {
     );
   }
 }
+
+
