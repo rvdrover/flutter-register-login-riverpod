@@ -69,6 +69,7 @@ class AccountPage extends ConsumerWidget {
   }
 
   Widget _buildUserInfo(User user) {
+    print(user.photoURL);
     return Column(
       children: [
         Avatar(

@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 class SignInViewModel with ChangeNotifier {
   SignInViewModel({required this.auth});
@@ -30,11 +31,25 @@ class SignInViewModel with ChangeNotifier {
   }
 
   Future<UserCredential?> signInWithFacebook() async {
-  final LoginResult result = await FacebookAuth.instance.login();
-  if(result.status == LoginStatus.success){
-    final OAuthCredential credential = FacebookAuthProvider.credential(result.accessToken!.token);
+    final LoginResult result = await FacebookAuth.instance.login();
+    if (result.status == LoginStatus.success) {
+      final OAuthCredential credential =
+          FacebookAuthProvider.credential(result.accessToken!.token);
+      return await auth.signInWithCredential(credential);
+    }
+    return null;
+  }
+
+  Future<UserCredential> signInWithGoogle() async {
+    final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+
+    final GoogleSignInAuthentication? googleAuth =
+        await googleUser?.authentication;
+
+    final credential = GoogleAuthProvider.credential(
+      accessToken: googleAuth?.accessToken,
+      idToken: googleAuth?.idToken,
+    );
     return await auth.signInWithCredential(credential);
   }
-  return null;
-}
 }

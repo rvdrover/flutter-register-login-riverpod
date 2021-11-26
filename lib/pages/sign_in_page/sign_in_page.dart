@@ -116,7 +116,7 @@ class SignInPageContents extends StatelessWidget {
                 color: Theme.of(context).primaryColor,
                 textColor: Colors.white,
                 onPressed:
-                    viewModel.isLoading ? null : viewModel.signInWithFacebook,
+                    viewModel.isLoading ? null : viewModel.signInWithGoogle,
               ),
               const SizedBox(height: 8),
              
@@ -126,7 +126,7 @@ class SignInPageContents extends StatelessWidget {
                 color: Theme.of(context).primaryColor,
                 textColor: Colors.white,
                 onPressed:
-                    viewModel.isLoading ? null : viewModel.signInAnonymously,
+                    viewModel.isLoading ? null : viewModel.signInWithFacebook,
               ),
               const SizedBox(height: 8),
               const Text(
