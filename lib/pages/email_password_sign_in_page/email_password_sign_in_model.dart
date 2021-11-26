@@ -41,6 +41,7 @@ class EmailPasswordSignInModel with EmailAndPasswordValidators, ChangeNotifier {
     try {
       updateWith(submitted: true);
       if (!canSubmit) {
+        print(!canSubmit);
         return false;
       }
       updateWith(isLoading: true);
@@ -77,6 +78,7 @@ class EmailPasswordSignInModel with EmailAndPasswordValidators, ChangeNotifier {
       isLoading: false,
       submitted: false,
     );
+    
   }
 
   void updateWith({
@@ -98,7 +100,9 @@ class EmailPasswordSignInModel with EmailAndPasswordValidators, ChangeNotifier {
     if (formType == EmailPasswordSignInFormType.register) {
       return EmailPasswordSignInStrings.password8CharactersLabel;
     }
+    
     return EmailPasswordSignInStrings.passwordLabel;
+    
   }
 
   // Getters

@@ -24,6 +24,7 @@ String _message(dynamic exception) {
   if (exception is PlatformException) {
     return exception.message ?? exception.toString();
   }
+  
   return exception.toString();
 }
 

@@ -1,8 +1,10 @@
 import 'dart:async';
 
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter/material.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:riverpod_flutter_register_login_firebase/providers/top_level_providers.dart';
 import 'package:riverpod_flutter_register_login_firebase/constants/keys.dart';
 import 'package:riverpod_flutter_register_login_firebase/constants/strings.dart';
@@ -15,6 +17,10 @@ class AccountPage extends ConsumerWidget {
 
   Future<void> _signOut(BuildContext context, FirebaseAuth firebaseAuth) async {
     try {
+      
+      final GoogleSignIn googleSignIn = GoogleSignIn();
+      await googleSignIn.signOut();
+      await FacebookAuth.instance.logOut();
       await firebaseAuth.signOut();
     } catch (e) {
       unawaited(showExceptionAlertDialog(

@@ -11,7 +11,7 @@ class SignInViewModel with ChangeNotifier {
   bool isLoading = false;
   dynamic error;
 
-  Future<void> _signIn(Future<UserCredential> Function() signInMethod) async {
+  Future<void> _signIn(Future<UserCredential?> Function() signInMethod) async {
     try {
       isLoading = true;
       notifyListeners();
@@ -26,11 +26,19 @@ class SignInViewModel with ChangeNotifier {
     }
   }
 
-  Future<void> signInAnonymously() async {
-    await _signIn(auth.signInAnonymously);
+  Future<void> signInWithGoogle() async {
+    return await _signIn(signInWithGoogleManager);
   }
 
-  Future<UserCredential?> signInWithFacebook() async {
+  Future<void> signInWithFacebook() async {
+    return await _signIn(signInWithFacebookManager);
+  }
+
+  Future<void> signInAnonymously() async {
+    return await _signIn(signInAnonymouslyManager);
+  }
+
+  Future<UserCredential?> signInWithFacebookManager() async {
     final LoginResult result = await FacebookAuth.instance.login();
     if (result.status == LoginStatus.success) {
       final OAuthCredential credential =
@@ -40,7 +48,7 @@ class SignInViewModel with ChangeNotifier {
     return null;
   }
 
-  Future<UserCredential> signInWithGoogle() async {
+  Future<UserCredential?> signInWithGoogleManager() async {
     final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
 
     final GoogleSignInAuthentication? googleAuth =
@@ -51,5 +59,9 @@ class SignInViewModel with ChangeNotifier {
       idToken: googleAuth?.idToken,
     );
     return await auth.signInWithCredential(credential);
+  }
+
+  Future<UserCredential?> signInAnonymouslyManager() async {
+    return await auth.signInAnonymously();
   }
 }
