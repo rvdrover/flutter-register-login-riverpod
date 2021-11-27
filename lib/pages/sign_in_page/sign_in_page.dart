@@ -11,8 +11,8 @@ import 'package:riverpod_flutter_register_login_firebase/constants/strings.dart'
 import 'package:riverpod_flutter_register_login_firebase/routing/app_router.dart';
 import 'package:riverpod_flutter_register_login_firebase/widgets/alerts/exception_alert_dialog.dart';
 
-final signInModelProvider = ChangeNotifierProvider<SignInViewModel>(
-  (ref) => SignInViewModel(auth: ref.watch(firebaseAuthProvider)),
+final signInModelProvider = ChangeNotifierProvider<SignInManager>(
+  (ref) => SignInManager(auth: ref.watch(firebaseAuthProvider)),
 );
 
 class SignInPage extends ConsumerWidget {
@@ -21,7 +21,7 @@ class SignInPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final signInModel = ref.watch(signInModelProvider);
-    ref.listen<SignInViewModel>(signInModelProvider, (_, model) async {
+    ref.listen<SignInManager>(signInModelProvider, (_, model) async {
       if (model.error != null) {
         await showExceptionAlertDialog(
           context: context,
@@ -41,7 +41,7 @@ class SignInPageContents extends StatelessWidget {
   const SignInPageContents(
       {Key? key, required this.viewModel, this.title = 'Architecture Demo'})
       : super(key: key);
-  final SignInViewModel viewModel;
+  final SignInManager viewModel;
   final String title;
 
   static const Key emailPasswordButtonKey = Key(Keys.emailPassword);
