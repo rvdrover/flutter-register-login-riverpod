@@ -8,8 +8,9 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:riverpod_flutter_register_login_firebase/constants/strings.dart';
 import 'package:riverpod_flutter_register_login_firebase/widgets/alerts/exception_alert_dialog.dart';
 
-class FirebaseAuthServices {
+class FirebaseAuthServices{
   final FirebaseAuth auth = FirebaseAuth.instance;
+  
 
   Future<UserCredential?> signInWithFacebookManager() async {
     final LoginResult result = await FacebookAuth.instance.login();
@@ -24,6 +25,7 @@ class FirebaseAuthServices {
       throw PlatformException(code: '', message: result.message);
     }
   }
+
 
   Future<UserCredential?> signInWithGoogleManager() async {
     final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
@@ -48,12 +50,17 @@ class FirebaseAuthServices {
     }
   }
 
+  
   Future<UserCredential?> signInAnonymouslyManager() async {
     return await auth.signInAnonymously();
   }
 
+
+
+  
   Future<void> signOut(BuildContext context) async {
     try {
+      
       final GoogleSignIn googleSignIn = GoogleSignIn();
       await googleSignIn.signOut();
       await FacebookAuth.instance.logOut();

@@ -28,7 +28,7 @@ class SignInPage extends ConsumerWidget {
     });
     return SignInPageContents(
       viewModel: signInModel,
-      title: 'Architecture Demo',
+      title: 'Riverpod Sign In',
     );
   }
 }
