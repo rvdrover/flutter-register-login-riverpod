@@ -41,7 +41,6 @@ class EmailPasswordSignInModel with EmailAndPasswordValidators, ChangeNotifier {
     try {
       updateWith(submitted: true);
       if (!canSubmit) {
-        print(!canSubmit);
         return false;
       }
       updateWith(isLoading: true);

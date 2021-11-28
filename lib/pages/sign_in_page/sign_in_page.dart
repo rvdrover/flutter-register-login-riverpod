@@ -5,23 +5,19 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:riverpod_flutter_register_login_firebase/pages/sign_in_page/sign_in_button.dart';
 import 'package:riverpod_flutter_register_login_firebase/pages/sign_in_page/sign_in_manager.dart';
-import 'package:riverpod_flutter_register_login_firebase/providers/top_level_providers.dart';
 import 'package:riverpod_flutter_register_login_firebase/constants/keys.dart';
 import 'package:riverpod_flutter_register_login_firebase/constants/strings.dart';
+import 'package:riverpod_flutter_register_login_firebase/providers/providers.dart';
 import 'package:riverpod_flutter_register_login_firebase/routing/app_router.dart';
 import 'package:riverpod_flutter_register_login_firebase/widgets/alerts/exception_alert_dialog.dart';
-
-final signInModelProvider = ChangeNotifierProvider<SignInManager>(
-  (ref) => SignInManager(auth: ref.watch(firebaseAuthProvider)),
-);
 
 class SignInPage extends ConsumerWidget {
   const SignInPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final signInModel = ref.watch(signInModelProvider);
-    ref.listen<SignInManager>(signInModelProvider, (_, model) async {
+    final signInModel = ref.watch(signInManagerProvider);
+    ref.listen<SignInManager>(signInManagerProvider, (_, model) async {
       if (model.error != null) {
         await showExceptionAlertDialog(
           context: context,
