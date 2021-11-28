@@ -7,7 +7,7 @@ import 'package:riverpod_flutter_register_login_firebase/pages/sign_in_page/sign
 import 'package:riverpod_flutter_register_login_firebase/routing/app_router.dart';
 
 import 'pages/account_page/account_page.dart';
-import 'providers/top_level_providers.dart';
+import 'providers/providers.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();

@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:riverpod_flutter_register_login_firebase/providers/top_level_providers.dart';
+import 'package:riverpod_flutter_register_login_firebase/providers/providers.dart';
 
 class AuthWidget extends ConsumerWidget {
   const AuthWidget({
