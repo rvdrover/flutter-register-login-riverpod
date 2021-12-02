@@ -4,7 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:riverpod_flutter_register_login_firebase/services/firebase_auth_services.dart';
 
-class SignInManager with ChangeNotifier {
+class SignInManager extends ChangeNotifier {
   bool isLoading = false;
   dynamic error;
   FirebaseAuthServices firebaseAuthServices =FirebaseAuthServices();
