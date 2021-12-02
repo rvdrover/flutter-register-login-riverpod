@@ -1,37 +1,59 @@
+
 import 'package:flutter/material.dart';
 
 @immutable
 class CustomElevatedButton extends StatelessWidget {
   const CustomElevatedButton({
     Key? key,
-    required this.child,
-    this.color,
+    required this.text,
+    this.buttonColor,
     this.textColor,
     this.height = 50.0,
     this.borderRadius = 4.0,
-    this.loading = false,
     this.onPressed,
+    this.icon,
+    this.image,
+    this.iconColor,
+    this.fontSize=16,
+    this.imagePath,
   }) : super(key: key);
-  final Widget child;
-  final Color? color;
+  final Color? buttonColor;
   final Color? textColor;
   final double height;
   final double borderRadius;
-  final bool loading;
   final VoidCallback? onPressed;
+  final Widget? image;
+  final IconData? icon;
+  final Color? iconColor;
+  final double? fontSize;
+  final String text;
+  final String? imagePath;
 
-  Widget buildSpinner(BuildContext context) {
-    final ThemeData data = Theme.of(context);
-    return Theme(
-      data: data.copyWith(colorScheme: ColorScheme.fromSwatch().copyWith(secondary: Colors.white70)),
-      child: const SizedBox(
-        width: 28,
-        height: 28,
-        child: CircularProgressIndicator(
-          strokeWidth: 3.0,
-        ),
-      ),
-    );
+  Widget? _getIconOrImage() {
+    if (imagePath != null) {
+      return Image.asset(
+        imagePath!,
+        height: imageOrIconSize(),
+      );
+    } else if (icon != null) {
+      return Icon(
+        icon,
+        size:imageOrIconSize(),
+        color: iconColor,
+      );
+    }
+    return null;
+  }
+
+  bool check() {
+    if (imagePath != null || icon != null) {
+      return false;
+    }
+    return true;
+  }
+
+  double imageOrIconSize() {
+    return height - 15;
   }
 
   @override
@@ -39,11 +61,34 @@ class CustomElevatedButton extends StatelessWidget {
     return SizedBox(
       height: height,
       child: ElevatedButton(
-        child: loading ? buildSpinner(context) : child,
+        child: check()
+            ? Text(
+                text,
+                style: TextStyle(
+                  color: textColor,
+                  fontSize: fontSize,
+                ),
+              )
+            : Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 20,
+                    ),
+                    child: _getIconOrImage(),
+                  ),
+                  Text(
+                    text,
+                    style: TextStyle(
+                      color: textColor,
+                      fontSize: fontSize,
+                    ),
+                  ),
+                ],
+              ),
         style: ElevatedButton.styleFrom(
-          primary: color,
-          onSurface: color,
-          
+          primary: buttonColor,
           textStyle: TextStyle(
             color: textColor,
           ),

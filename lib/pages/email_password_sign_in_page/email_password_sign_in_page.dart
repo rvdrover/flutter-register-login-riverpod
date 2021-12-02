@@ -1,4 +1,3 @@
-
 import 'dart:math';
 
 import 'package:firebase_auth/firebase_auth.dart';
@@ -142,6 +141,12 @@ class _EmailPasswordSignInPageState extends State<EmailPasswordSignInPage> {
     );
   }
 
+  Widget _buildHeader() {
+    return const Center(
+      child: CircularProgressIndicator(),
+    );
+  }
+
   Widget _buildContent() {
     return FocusScope(
       node: _node,
@@ -162,7 +167,6 @@ class _EmailPasswordSignInPageState extends State<EmailPasswordSignInPage> {
             FormSubmitButton(
               key: const Key('primary-button'),
               text: model.primaryButtonText,
-              loading: model.isLoading,
               onPressed: model.isLoading ? null : _submit,
             ),
             const SizedBox(height: 8.0),
@@ -197,22 +201,24 @@ class _EmailPasswordSignInPageState extends State<EmailPasswordSignInPage> {
         title: Text(model.title),
       ),
       backgroundColor: Colors.grey[200],
-      body: SingleChildScrollView(
-        child: Center(
-          child: LayoutBuilder(builder: (context, constraints) {
-            return Container(
-              width: min(constraints.maxWidth, 600),
-              padding: const EdgeInsets.all(16.0),
-              child: Card(
-                child: Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: _buildContent(),
-                ),
+      body: model.isLoading
+          ? _buildHeader()
+          : SingleChildScrollView(
+              child: Center(
+                child: LayoutBuilder(builder: (context, constraints) {
+                  return Container(
+                    width: min(constraints.maxWidth, 600),
+                    padding: const EdgeInsets.all(16.0),
+                    child: Card(
+                      child: Padding(
+                        padding: const EdgeInsets.all(16.0),
+                        child: _buildContent(),
+                      ),
+                    ),
+                  );
+                }),
               ),
-            );
-          }),
-        ),
-      ),
+            ),
     );
   }
 }

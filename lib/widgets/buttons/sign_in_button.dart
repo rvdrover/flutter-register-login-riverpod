@@ -1,21 +1,26 @@
-
 import 'package:flutter/material.dart';
 import 'package:riverpod_flutter_register_login_firebase/widgets/buttons/custom_elevated_button.dart';
 
 class SignInButton extends CustomElevatedButton {
-  SignInButton({
+  const SignInButton({
     Key? key,
     required String text,
-    required Color color,
+    Color? buttonColor,
     VoidCallback? onPressed,
-    Color textColor = Colors.black87,
-    double height = 50.0,
+    Color? textColor,
+    double? fontSize =16,
+    String? imagePath,
+    IconData? icon,
+    double height=50,
   }) : super(
           key: key,
-          child: Text(text, style: TextStyle(color: textColor, fontSize: 16.0)),
-          color: color,
+          text: text,
+          fontSize: fontSize,
+          buttonColor: buttonColor,
           textColor: textColor,
-          height: height,
           onPressed: onPressed,
+          imagePath: imagePath,
+          icon: icon,
+          height: height,
         );
 }

@@ -3,21 +3,26 @@ import 'package:flutter/material.dart';
 import 'custom_elevated_button.dart';
 
 class FormSubmitButton extends CustomElevatedButton {
-  FormSubmitButton({
+  const FormSubmitButton({
     Key? key,
     required String text,
-    bool loading = false,
     VoidCallback? onPressed,
+    double? fontSize =16,
+    Color? textColor,
+    Color? buttonColor,
+    String? imagePath,
+    IconData? icon,
+    double height=50,
   }) : super(
           key: key,
-          child: Text(
-            text,
-            style: const TextStyle(color: Colors.white, fontSize: 20.0),
-          ),
-          height: 44.0,
-          color: Colors.indigo,
+          text: text,
+          height: height,
+          buttonColor: Colors.indigo,
           textColor: Colors.black87,
-          loading: loading,
           onPressed: onPressed,
+          fontSize: fontSize,
+          imagePath: imagePath,
+          icon: icon,
+
         );
 }
