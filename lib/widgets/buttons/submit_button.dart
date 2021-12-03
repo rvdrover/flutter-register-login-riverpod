@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:riverpod_flutter_register_login_firebase/widgets/buttons/custom_elevated_button.dart';
 
-class SignInButton extends CustomElevatedButton {
-  const SignInButton({
+class SubmitButton extends CustomElevatedButton {
+  const SubmitButton({
     Key? key,
     required String text,
     Color? buttonColor,

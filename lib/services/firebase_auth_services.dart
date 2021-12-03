@@ -8,9 +8,8 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:riverpod_flutter_register_login_firebase/constants/strings.dart';
 import 'package:riverpod_flutter_register_login_firebase/widgets/alerts/exception_alert_dialog.dart';
 
-class FirebaseAuthServices{
+class FirebaseAuthServices {
   final FirebaseAuth auth = FirebaseAuth.instance;
-  
 
   Future<UserCredential?> signInWithFacebookManager() async {
     final LoginResult result = await FacebookAuth.instance.login();
@@ -26,41 +25,38 @@ class FirebaseAuthServices{
     }
   }
 
-
   Future<UserCredential?> signInWithGoogleManager() async {
     final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
-
-    if (googleUser != null) {
-      final GoogleSignInAuthentication? googleAuth =
-          await googleUser.authentication;
-      if (googleAuth!.accessToken != null && googleAuth.idToken != null) {
-        final credential = GoogleAuthProvider.credential(
-          accessToken: googleAuth.accessToken,
-          idToken: googleAuth.idToken,
-        );
-        return await auth.signInWithCredential(credential);
-      } else {
-        throw PlatformException(
-            code: 'ERROR_MISSING_GOOGLE_AUTH_TOKEN',
-            message: 'Missing Google Auth Token');
+    try {
+      if (googleUser != null) {
+        final GoogleSignInAuthentication? googleAuth =
+            await googleUser.authentication;
+        if (googleAuth!.accessToken != null && googleAuth.idToken != null) {
+          final credential = GoogleAuthProvider.credential(
+            accessToken: googleAuth.accessToken,
+            idToken: googleAuth.idToken,
+          );
+          return await auth.signInWithCredential(credential);
+        } else {
+          throw PlatformException(
+              code: 'ERROR_MISSING_GOOGLE_AUTH_TOKEN',
+              message: 'Missing Google Auth Token');
+        }
+      } else{
+        return null;
+        // throw PlatformException(code: 'ERROR_ABORTED_BY_USER', message: 'Sign in aborted by user');
       }
-    } else {
-      return null;
-      // throw PlatformException(code: 'ERROR_ABORTED_BY_USER', message: 'Sign in aborted by user');
+    } catch (e) {
+      print(e.toString());
     }
   }
 
-  
   Future<UserCredential?> signInAnonymouslyManager() async {
     return await auth.signInAnonymously();
   }
 
-
-
-  
   Future<void> signOut(BuildContext context) async {
     try {
-      
       final GoogleSignIn googleSignIn = GoogleSignIn();
       await googleSignIn.signOut();
       await FacebookAuth.instance.logOut();

@@ -5,7 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:riverpod_flutter_register_login_firebase/widgets/alerts/alert_dialogs.dart';
 import 'package:riverpod_flutter_register_login_firebase/widgets/alerts/exception_alert_dialog.dart';
-import 'package:riverpod_flutter_register_login_firebase/widgets/buttons/form_submit_button.dart';
+import 'package:riverpod_flutter_register_login_firebase/widgets/buttons/submit_button.dart';
+import 'package:riverpod_flutter_register_login_firebase/widgets/spinner/spinner.dart';
 
 import 'email_password_sign_in_model.dart';
 import 'email_password_sign_in_string.dart';
@@ -141,11 +142,7 @@ class _EmailPasswordSignInPageState extends State<EmailPasswordSignInPage> {
     );
   }
 
-  Widget _buildHeader() {
-    return const Center(
-      child: CircularProgressIndicator(),
-    );
-  }
+  
 
   Widget _buildContent() {
     return FocusScope(
@@ -164,7 +161,7 @@ class _EmailPasswordSignInPageState extends State<EmailPasswordSignInPage> {
               _buildPasswordField(),
             ],
             const SizedBox(height: 8.0),
-            FormSubmitButton(
+            SubmitButton(
               key: const Key('primary-button'),
               text: model.primaryButtonText,
               onPressed: model.isLoading ? null : _submit,
@@ -202,7 +199,7 @@ class _EmailPasswordSignInPageState extends State<EmailPasswordSignInPage> {
       ),
       backgroundColor: Colors.grey[200],
       body: model.isLoading
-          ? _buildHeader()
+          ? const Spinner()
           : SingleChildScrollView(
               child: Center(
                 child: LayoutBuilder(builder: (context, constraints) {

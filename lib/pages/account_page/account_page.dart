@@ -32,7 +32,6 @@ class AccountPage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final firebaseAuth = ref.watch(firebaseAuthProvider);
     final user = firebaseAuth.currentUser!;
-
     final firebaseAuthServices = ref.watch(firebaseAuthServicesProvider);
 
     return Scaffold(

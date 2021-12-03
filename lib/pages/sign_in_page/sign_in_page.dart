@@ -3,13 +3,14 @@ import 'dart:math';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:riverpod_flutter_register_login_firebase/widgets/buttons/sign_in_button.dart';
+import 'package:riverpod_flutter_register_login_firebase/widgets/buttons/submit_button.dart';
 import 'package:riverpod_flutter_register_login_firebase/pages/sign_in_page/sign_in_manager.dart';
 import 'package:riverpod_flutter_register_login_firebase/constants/keys.dart';
 import 'package:riverpod_flutter_register_login_firebase/constants/strings.dart';
 import 'package:riverpod_flutter_register_login_firebase/providers/providers.dart';
 import 'package:riverpod_flutter_register_login_firebase/routing/app_router.dart';
 import 'package:riverpod_flutter_register_login_firebase/widgets/alerts/exception_alert_dialog.dart';
+import 'package:riverpod_flutter_register_login_firebase/widgets/spinner/spinner.dart';
 
 class SignInPage extends ConsumerWidget {
   const SignInPage({Key? key}) : super(key: key);
@@ -27,7 +28,7 @@ class SignInPage extends ConsumerWidget {
       }
     });
     return SignInPageContents(
-      viewModel: signInModel,
+      signInManager: signInModel,
       title: 'Riverpod Sign In',
     );
   }
@@ -35,9 +36,9 @@ class SignInPage extends ConsumerWidget {
 
 class SignInPageContents extends StatelessWidget {
   const SignInPageContents(
-      {Key? key, required this.viewModel, this.title = 'Architecture Demo'})
+      {Key? key, required this.signInManager, this.title = 'Architecture Demo'})
       : super(key: key);
-  final SignInManager viewModel;
+  final SignInManager signInManager;
   final String title;
 
   static const Key emailPasswordButtonKey = Key(Keys.emailPassword);
@@ -65,15 +66,9 @@ class SignInPageContents extends StatelessWidget {
     );
   }
 
-  Widget _buildHeader() {
-    return const Center(
-      child: CircularProgressIndicator(),
-    );
-  }
-
   Widget _buildSignIn(BuildContext context) {
-    return viewModel.isLoading
-        ? _buildHeader()
+    return signInManager.isLoading
+        ? const Spinner()
         : Center(
             child: LayoutBuilder(builder: (context, constraints) {
               return SingleChildScrollView(
@@ -95,38 +90,37 @@ class SignInPageContents extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(height: 32.0),
-                      SignInButton(
+                      SubmitButton(
                         key: emailPasswordButtonKey,
                         text: Strings.signInWithEmailPassword,
-                        onPressed: viewModel.isLoading
+                        onPressed: signInManager.isLoading
                             ? null
                             : () => _showEmailPasswordSignInPage(context),
                         textColor: Colors.white,
                         buttonColor: Theme.of(context).primaryColor,
                         icon: Icons.email,
-                        
                       ),
                       const SizedBox(height: 8),
-                      SignInButton(
+                      SubmitButton(
                         key: googlesignButtonKey,
                         text: Strings.signinWithGoogle,
                         buttonColor: Theme.of(context).primaryColor,
                         textColor: Colors.white,
                         imagePath: ('assets/images/google-logo.png'),
-                        onPressed: viewModel.isLoading
+                        onPressed: signInManager.isLoading
                             ? null
-                            : viewModel.signInWithGoogle,
+                            : signInManager.signInWithGoogle,
                       ),
                       const SizedBox(height: 8),
-                      SignInButton(
+                      SubmitButton(
                         key: facebookSignButtonKey,
                         text: Strings.signinWithFacebook,
                         buttonColor: Theme.of(context).primaryColor,
                         textColor: Colors.white,
                         imagePath: ('assets/images/facebook-logo.png'),
-                        onPressed: viewModel.isLoading
+                        onPressed: signInManager.isLoading
                             ? null
-                            : viewModel.signInWithFacebook,
+                            : signInManager.signInWithFacebook,
                       ),
                       const SizedBox(height: 8),
                       const Text(
@@ -135,15 +129,15 @@ class SignInPageContents extends StatelessWidget {
                         textAlign: TextAlign.center,
                       ),
                       const SizedBox(height: 8),
-                      SignInButton(
+                      SubmitButton(
                         key: anonymousButtonKey,
                         text: Strings.signAnonymous,
                         buttonColor: Theme.of(context).primaryColor,
                         textColor: Colors.white,
                         imagePath: ('assets/images/anonymous-logo.png'),
-                        onPressed: viewModel.isLoading
+                        onPressed: signInManager.isLoading
                             ? null
-                            : viewModel.signInAnonymously,
+                            : signInManager.signInAnonymously,
                       ),
                     ],
                   ),
