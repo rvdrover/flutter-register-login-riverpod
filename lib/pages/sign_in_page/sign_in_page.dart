@@ -103,7 +103,7 @@ class SignInPageContents extends StatelessWidget {
                             : () => _showEmailPasswordSignInPage(context),
                         textColor: Colors.white,
                         buttonColor: Theme.of(context).primaryColor,
-                        imagePath: ('assets/images/facebook-logo.png'),
+                        icon: Icons.email,
                         
                       ),
                       const SizedBox(height: 8),
@@ -112,7 +112,7 @@ class SignInPageContents extends StatelessWidget {
                         text: Strings.signinWithGoogle,
                         buttonColor: Theme.of(context).primaryColor,
                         textColor: Colors.white,
-                        imagePath: ('assets/images/facebook-logo.png'),
+                        imagePath: ('assets/images/google-logo.png'),
                         onPressed: viewModel.isLoading
                             ? null
                             : viewModel.signInWithGoogle,
@@ -140,6 +140,7 @@ class SignInPageContents extends StatelessWidget {
                         text: Strings.signAnonymous,
                         buttonColor: Theme.of(context).primaryColor,
                         textColor: Colors.white,
+                        imagePath: ('assets/images/anonymous-logo.png'),
                         onPressed: viewModel.isLoading
                             ? null
                             : viewModel.signInAnonymously,

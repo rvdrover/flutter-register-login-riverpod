@@ -45,7 +45,7 @@ class CustomElevatedButton extends StatelessWidget {
     return null;
   }
 
-  bool check() {
+  bool checkImageorIcon() {
     if (imagePath != null || icon != null) {
       return false;
     }
@@ -61,7 +61,7 @@ class CustomElevatedButton extends StatelessWidget {
     return SizedBox(
       height: height,
       child: ElevatedButton(
-        child: check()
+        child: checkImageorIcon()
             ? Text(
                 text,
                 style: TextStyle(
@@ -73,16 +73,16 @@ class CustomElevatedButton extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
                   Padding(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 20,
-                    ),
-                    child: _getIconOrImage(),
+                    padding:  const EdgeInsets.fromLTRB(15, 0, 20,0),
+                    child: SizedBox(width: imageOrIconSize(),child: _getIconOrImage()),
                   ),
-                  Text(
-                    text,
-                    style: TextStyle(
-                      color: textColor,
-                      fontSize: fontSize,
+                  Flexible(
+                    child: Text(
+                      text,
+                      style: TextStyle(
+                        color: textColor,
+                        fontSize: fontSize,
+                      ),
                     ),
                   ),
                 ],

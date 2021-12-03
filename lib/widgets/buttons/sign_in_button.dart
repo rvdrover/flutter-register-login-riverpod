@@ -11,6 +11,7 @@ class SignInButton extends CustomElevatedButton {
     double? fontSize =16,
     String? imagePath,
     IconData? icon,
+    Color? iconColor,
     double height=50,
   }) : super(
           key: key,
@@ -22,5 +23,6 @@ class SignInButton extends CustomElevatedButton {
           imagePath: imagePath,
           icon: icon,
           height: height,
+          iconColor: iconColor,
         );
 }
