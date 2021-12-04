@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_flutter_register_login_firebase/providers/providers.dart';
+import 'package:riverpod_flutter_register_login_firebase/widgets/spinner/spinner.dart';
 
 class AuthWidget extends ConsumerWidget {
   const AuthWidget({
@@ -19,7 +20,7 @@ class AuthWidget extends ConsumerWidget {
         data: (user) => _data(context, user),
         loading: () => const Scaffold(
               body: Center(
-                child: CircularProgressIndicator(),
+                child:Spinner(),
               ),
             ),
         error: (err, __) => Text('Error: $err'));

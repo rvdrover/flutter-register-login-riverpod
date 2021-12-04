@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_flutter_register_login_firebase/pages/sign_in_page/sign_in_manager.dart';
+import 'package:riverpod_flutter_register_login_firebase/pages/sign_in_page/sign_in_page.dart';
 import 'package:riverpod_flutter_register_login_firebase/services/firebase_auth_services.dart';
 
 final firebaseAuthProvider =
@@ -12,6 +13,10 @@ final authStateChangesProvider = StreamProvider<User?>(
 final firebaseAuthServicesProvider =
     Provider<FirebaseAuthServices>((ref) => FirebaseAuthServices());
 
-final signInManagerProvider = ChangeNotifierProvider<SignInManager>(
-  (ref) => SignInManager(),
-);
+// final signInManagerProvider = ChangeNotifierProvider<SignInManager>(
+//   (ref) => SignInManager(),
+// );
+
+final signInManagerProvider = StateNotifierProvider<SignInManager, SignIn>((ref) {
+  return SignInManager();
+});

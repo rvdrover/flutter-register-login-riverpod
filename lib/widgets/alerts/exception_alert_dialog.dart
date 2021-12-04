@@ -8,7 +8,7 @@ import 'alert_dialogs.dart';
 Future<void> showExceptionAlertDialog({
   required BuildContext context,
   required String title,
-  required dynamic exception,
+  required String exception,
 }) =>
     showAlertDialog(
       context: context,

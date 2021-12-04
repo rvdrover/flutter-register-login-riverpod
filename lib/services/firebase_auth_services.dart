@@ -27,7 +27,7 @@ class FirebaseAuthServices {
 
   Future<UserCredential?> signInWithGoogleManager() async {
     final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
-    try {
+   
       if (googleUser != null) {
         final GoogleSignInAuthentication? googleAuth =
             await googleUser.authentication;
@@ -46,9 +46,6 @@ class FirebaseAuthServices {
         return null;
         // throw PlatformException(code: 'ERROR_ABORTED_BY_USER', message: 'Sign in aborted by user');
       }
-    } catch (e) {
-      print(e.toString());
-    }
   }
 
   Future<UserCredential?> signInAnonymouslyManager() async {
@@ -65,7 +62,7 @@ class FirebaseAuthServices {
       unawaited(showExceptionAlertDialog(
         context: context,
         title: Strings.logoutFailed,
-        exception: e,
+        exception: e.toString(),
       ));
     }
   }
