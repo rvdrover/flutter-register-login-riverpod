@@ -1,8 +1,6 @@
 import 'dart:async';
 
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:riverpod_flutter_register_login_firebase/services/firebase_auth_services.dart';
@@ -42,11 +40,11 @@ import 'package:riverpod_flutter_register_login_firebase/services/firebase_auth_
 
 class SignIn {
   bool isLoading;
-  String error;
+  dynamic error;
 
   SignIn({
     this.isLoading = false,
-    this.error ='',
+    this.error,
   });
 }
 
@@ -57,11 +55,11 @@ class SignInManager extends StateNotifier<SignIn> {
 
   Future<void> _signIn(Future<UserCredential?> Function() signInMethod) async {
     try {
-      state = SignIn(error: '');
+      state = SignIn(error: null);
       state = SignIn(isLoading: true);
       await signInMethod();
     } catch (e) {
-      state = SignIn(error: e.toString());
+      state = SignIn(error: e);
       rethrow;
     } finally {
       state = SignIn(isLoading: false);

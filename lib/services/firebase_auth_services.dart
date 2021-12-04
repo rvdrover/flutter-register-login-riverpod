@@ -62,7 +62,7 @@ class FirebaseAuthServices {
       unawaited(showExceptionAlertDialog(
         context: context,
         title: Strings.logoutFailed,
-        exception: e.toString(),
+        exception: e,
       ));
     }
   }
