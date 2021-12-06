@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:riverpod_flutter_register_login_firebase/constants/strings.dart';
+import 'package:riverpod_flutter_register_login_firebase/constants/commen_strings.dart';
 import 'package:riverpod_flutter_register_login_firebase/widgets/alerts/exception_alert_dialog.dart';
 
 class FirebaseAuthServices {

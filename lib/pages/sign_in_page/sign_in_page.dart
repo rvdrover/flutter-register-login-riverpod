@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:riverpod_flutter_register_login_firebase/widgets/buttons/submit_button.dart';
 import 'package:riverpod_flutter_register_login_firebase/pages/sign_in_page/sign_in_manager.dart';
 import 'package:riverpod_flutter_register_login_firebase/constants/keys.dart';
-import 'package:riverpod_flutter_register_login_firebase/constants/strings.dart';
+import 'package:riverpod_flutter_register_login_firebase/constants/commen_strings.dart';
 import 'package:riverpod_flutter_register_login_firebase/providers/providers.dart';
 import 'package:riverpod_flutter_register_login_firebase/routing/app_router.dart';
 import 'package:riverpod_flutter_register_login_firebase/widgets/alerts/exception_alert_dialog.dart';
@@ -152,9 +152,9 @@ class SignInPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    ref.listen<SignIn>(signInManagerProvider, (_, signIn) async{
+    ref.listen<SignIn>(signInManagerProvider, (_, signIn) async {
       if (signIn.error != null) {
-       await showExceptionAlertDialog(
+        await showExceptionAlertDialog(
           context: context,
           title: Strings.signInFailed,
           exception: signIn.error,
@@ -175,14 +175,6 @@ class SignInPageContents extends StatelessWidget {
   static const Key anonymousButtonKey = Key(Keys.anonymous);
   static const Key googlesignButtonKey = Key(Keys.googleSign);
   static const Key facebookSignButtonKey = Key(Keys.facebookSign);
-
-  Future<void> _showEmailPasswordSignInPage(BuildContext context) async {
-    final navigator = Navigator.of(context);
-    await navigator.pushNamed(
-      AppRoutes.emailPasswordSignInPage,
-      arguments: () => navigator.pop(),
-    );
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -277,6 +269,12 @@ class SignInPageContents extends StatelessWidget {
       }),
     );
   }
-}
 
-  
+  Future<void> _showEmailPasswordSignInPage(BuildContext context) async {
+    final navigator = Navigator.of(context);
+    await navigator.pushNamed(
+      AppRoutes.emailPasswordSignInPage,
+      arguments: () => navigator.pop(),
+    );
+  }
+}
