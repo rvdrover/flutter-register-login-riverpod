@@ -29,32 +29,7 @@ class CustomElevatedButton extends StatelessWidget {
   final String text;
   final String? imagePath;
 
-  Widget? _getIconOrImage() {
-    if (imagePath != null) {
-      return Image.asset(
-        imagePath!,
-        height: imageOrIconSize(),
-      );
-    } else if (icon != null) {
-      return Icon(
-        icon,
-        size:imageOrIconSize(),
-        color: iconColor,
-      );
-    }
-    return null;
-  }
-
-  bool checkImageorIcon() {
-    if (imagePath != null || icon != null) {
-      return false;
-    }
-    return true;
-  }
-
-  double imageOrIconSize() {
-    return height - 15;
-  }
+  
 
   @override
   Widget build(BuildContext context) {
@@ -101,5 +76,31 @@ class CustomElevatedButton extends StatelessWidget {
         onPressed: onPressed,
       ),
     );
+  }
+  Widget? _getIconOrImage() {
+    if (imagePath != null) {
+      return Image.asset(
+        imagePath!,
+        height: imageOrIconSize(),
+      );
+    } else if (icon != null) {
+      return Icon(
+        icon,
+        size:imageOrIconSize(),
+        color: iconColor,
+      );
+    }
+    return null;
+  }
+
+  bool checkImageorIcon() {
+    if (imagePath != null || icon != null) {
+      return false;
+    }
+    return true;
+  }
+
+  double imageOrIconSize() {
+    return height - 15;
   }
 }
