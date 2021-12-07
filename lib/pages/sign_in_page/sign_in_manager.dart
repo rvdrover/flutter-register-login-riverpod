@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:riverpod_flutter_register_login_firebase/services/firebase_auth_services.dart';
@@ -53,11 +54,11 @@ class SignInManager extends StateNotifier<SignIn> {
 
   final FirebaseAuthServices firebaseAuthServices = FirebaseAuthServices();
 
-  Future<void> _signIn(Future<UserCredential?> Function() signInMethod) async {
+  Future<void> _signIn(Future<UserCredential?> signInMethod) async {
     try {
       state = SignIn(error: null);
       state = SignIn(isLoading: true);
-      await signInMethod();
+      await signInMethod;
     } catch (e) {
       state = SignIn(error: e);
       rethrow;
@@ -67,14 +68,22 @@ class SignInManager extends StateNotifier<SignIn> {
   }
 
   Future<void> signInWithGoogle() async {
-    return await _signIn(firebaseAuthServices.signInWithGoogleManager);
+    return await _signIn(firebaseAuthServices.signInWithGoogleManager());
   }
 
   Future<void> signInWithFacebook() async {
-    return await _signIn(firebaseAuthServices.signInWithFacebookManager);
+    return await _signIn(firebaseAuthServices.signInWithFacebookManager());
+  }
+
+  Future<void> signInWithTwitter() async {
+    return await _signIn(firebaseAuthServices.signInWithTwitterManager());
+  }
+
+  Future<void> signInWithGithub(BuildContext context) async {
+    return await _signIn(firebaseAuthServices.signInWithGitHubManager(context));
   }
 
   Future<void> signInAnonymously() async {
-    return await _signIn(firebaseAuthServices.signInAnonymouslyManager);
+    return await _signIn(firebaseAuthServices.signInAnonymouslyManager());
   }
 }

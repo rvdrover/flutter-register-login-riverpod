@@ -19,3 +19,7 @@ final firebaseAuthServicesProvider =
 final signInManagerProvider = StateNotifierProvider<SignInManager, SignIn>((ref) {
   return SignInManager();
 });
+
+// final emailSignInManagerProvider = StateNotifierProvider<EmailPasswordSignInModel,  EmailAndPasswordSign >((ref) {
+//   return EmailPasswordSignInModel();
+// });

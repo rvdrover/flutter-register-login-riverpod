@@ -14,11 +14,12 @@ class Strings {
   static const String signInWithEmailPassword =
       'Sign in with Email and Password';
   static const String signAnonymous = 'Sign Anonymous';
-   static const String signinWithGoogle = 'Sign in with Google';
-    static const String signinWithFacebook = 'Sign in with Facebook ';
+  static const String signinWithGoogle = 'Sign in with Google';
+  static const String signinWithFacebook = 'Sign in with Facebook';
+  static const String signinWithTwitter = 'Sign in with Twitter';
+  static const String signinWithGithub = 'Sign in with Github ';
   static const String or = 'or';
   static const String signInFailed = 'Sign in failed';
-
 
   // Account page
   static const String account = 'Account';

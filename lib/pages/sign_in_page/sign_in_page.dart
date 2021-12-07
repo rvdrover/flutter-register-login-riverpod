@@ -1,3 +1,4 @@
+
 import 'dart:math';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -175,6 +176,8 @@ class SignInPageContents extends StatelessWidget {
   static const Key anonymousButtonKey = Key(Keys.anonymous);
   static const Key googlesignButtonKey = Key(Keys.googleSign);
   static const Key facebookSignButtonKey = Key(Keys.facebookSign);
+  static const Key twitterSignButtonKey = Key(Keys.twitterSign);
+  static const Key githubSignButtonKey = Key(Keys.githubSign);
 
   @override
   Widget build(BuildContext context) {
@@ -241,6 +244,28 @@ class SignInPageContents extends StatelessWidget {
                             onPressed: signIn.isLoading
                                 ? null
                                 : signInNotifier.signInWithFacebook,
+                          ),
+                          const SizedBox(height: 8),
+                          SubmitButton(
+                            key: twitterSignButtonKey,
+                            text: Strings.signinWithTwitter,
+                            buttonColor: Theme.of(context).primaryColor,
+                            textColor: Colors.white,
+                            imagePath: ('assets/images/twitter-logo.png'),
+                            onPressed: signIn.isLoading
+                                ? null
+                                : signInNotifier.signInWithTwitter,
+                          ),
+                          const SizedBox(height: 8),
+                          SubmitButton(
+                            key: githubSignButtonKey,
+                            text: Strings.signinWithGithub,
+                            buttonColor: Theme.of(context).primaryColor,
+                            textColor: Colors.white,
+                            imagePath: ('assets/images/github-logo.png'),
+                            onPressed: () => signIn.isLoading
+                                ? null
+                                : signInNotifier.signInWithGithub(context),
                           ),
                           const SizedBox(height: 8),
                           const Text(
