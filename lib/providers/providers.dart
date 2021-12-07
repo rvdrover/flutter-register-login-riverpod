@@ -12,14 +12,7 @@ final authStateChangesProvider = StreamProvider<User?>(
 final firebaseAuthServicesProvider =
     Provider<FirebaseAuthServices>((ref) => FirebaseAuthServices());
 
-// final signInManagerProvider = ChangeNotifierProvider<SignInManager>(
-//   (ref) => SignInManager(),
-// );
-
-final signInManagerProvider = StateNotifierProvider<SignInManager, SignIn>((ref) {
+final signInManagerProvider =
+    StateNotifierProvider<SignInManager, SignIn>((ref) {
   return SignInManager();
 });
-
-// final emailSignInManagerProvider = StateNotifierProvider<EmailPasswordSignInModel,  EmailAndPasswordSign >((ref) {
-//   return EmailPasswordSignInModel();
-// });
