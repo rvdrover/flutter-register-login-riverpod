@@ -27,7 +27,7 @@ class SignInPage extends ConsumerWidget {
       }
     });
     return const SignInPageContents(
-      title: 'Riverpod Sign In',
+      title: 'Riverpod FireBase Social Sign',
     );
   }
 }
