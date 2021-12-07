@@ -1,4 +1,3 @@
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:riverpod_flutter_register_login_firebase/pages/email_password_sign_in_page/email_password_sign_in_page.dart';
@@ -19,7 +18,7 @@ class AppRouter {
           settings: settings,
           fullscreenDialog: true,
         );
-      
+
       default:
         return null;
     }
