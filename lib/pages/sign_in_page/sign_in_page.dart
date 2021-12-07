@@ -33,8 +33,7 @@ class SignInPage extends ConsumerWidget {
 }
 
 class SignInPageContents extends StatelessWidget {
-  const SignInPageContents({Key? key, this.title=""})
-      : super(key: key);
+  const SignInPageContents({Key? key, this.title = ""}) : super(key: key);
   final String title;
   static const Key emailPasswordButtonKey = Key(Keys.emailPassword);
   static const Key anonymousButtonKey = Key(Keys.anonymous);
@@ -46,11 +45,11 @@ class SignInPageContents extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        elevation: 2.0,
-        title: Text(title),
-      ),
-      backgroundColor: Colors.grey[200],
+      // appBar: AppBar(
+      //   elevation: 2.0,
+      //   title: Center(child: Text(title)),
+      // ),
+      // backgroundColor: Colors.grey[200],
       body: Consumer(builder: (_, WidgetRef ref, __) {
         final signInNotifier = ref.watch(signInManagerProvider.notifier);
         final signIn = ref.watch(signInManagerProvider);
