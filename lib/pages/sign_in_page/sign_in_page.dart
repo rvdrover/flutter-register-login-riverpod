@@ -33,7 +33,7 @@ class SignInPage extends ConsumerWidget {
 }
 
 class SignInPageContents extends StatelessWidget {
-  const SignInPageContents({Key? key, this.title = 'Architecture Demo'})
+  const SignInPageContents({Key? key, this.title=""})
       : super(key: key);
   final String title;
   static const Key emailPasswordButtonKey = Key(Keys.emailPassword);
