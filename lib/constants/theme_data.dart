@@ -10,4 +10,14 @@ class AppTheme {
     unselectedWidgetColor: Colors.black45,
     focusColor: Colors.black,
   );
+
+  static final ThemeData dark = ThemeData(
+    primaryColor: Colors.black12,
+    appBarTheme: const AppBarTheme(
+      color: Colors.black,
+    ),
+    brightness: Brightness.dark,
+    scaffoldBackgroundColor: Colors.black,
+    focusColor: Colors.white,
+  );
 }
