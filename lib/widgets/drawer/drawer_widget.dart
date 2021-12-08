@@ -12,10 +12,10 @@ class DrawerWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-        child: ListView(
+        child: Column(
       children: <Widget>[
         createHeader(avatarImage),
-        createDrawerItem(icon: Icons.contacts, text: 'Contacts', onTap: () {}),
+        createDrawerItem(icon: Icons.logout, text: 'Logout', onTap: () {}),
         ListTile(
           title: const Text('0.0.1'),
           onTap: () {},
@@ -27,12 +27,18 @@ class DrawerWidget extends StatelessWidget {
 
 Widget createHeader(Avatar avatarImage) {
   return DrawerHeader(
-      margin: EdgeInsets.zero,
-      padding: const EdgeInsets.all(20),
-      decoration: const BoxDecoration(
-        color: Colors.blueAccent,
-      ),
-      child: avatarImage);
+    margin: EdgeInsets.zero,
+    padding: EdgeInsets.zero,
+    decoration: const BoxDecoration(
+      color: Colors.blueAccent,
+    ),
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        avatarImage,
+      ],
+    ),
+  );
 }
 
 Widget createDrawerItem(

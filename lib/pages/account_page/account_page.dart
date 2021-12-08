@@ -26,7 +26,7 @@ class AccountPage extends ConsumerWidget {
         
       ),
       body: _buildUserInfo(user, context, firebaseAuthServices),
-      drawer: SafeArea(child: DrawerWidget(avatarImage: Avatar(radius: 50,photoUrl: user.photoURL,
+      drawer: SafeArea(child: DrawerWidget(avatarImage: Avatar(radius: 40,photoUrl: user.photoURL,
               borderColor: Colors.black54,
               borderWidth: 2.0,),)),
     );
