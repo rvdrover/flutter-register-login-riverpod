@@ -104,7 +104,7 @@ class _EmailPasswordSignInPageState extends State<EmailPasswordSignInPage> {
           );
         } else {
           if (widget.onSignedIn != null) {
-            widget.onSignedIn;
+            widget.onSignedIn?.call();
           }
         }
       }
