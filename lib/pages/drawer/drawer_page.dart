@@ -2,7 +2,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_flutter_register_login_firebase/constants/commen_strings.dart';
-import 'package:riverpod_flutter_register_login_firebase/constants/keys.dart';
 import 'package:riverpod_flutter_register_login_firebase/providers/providers.dart';
 import 'package:riverpod_flutter_register_login_firebase/services/firebase_auth_services.dart';
 import 'package:riverpod_flutter_register_login_firebase/widgets/alerts/alert_dialogs.dart';
@@ -21,17 +20,19 @@ class DrawerPage extends ConsumerWidget {
     final firebaseAuthServices = ref.watch(firebaseAuthServicesProvider);
     return Drawer(
         child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         createHeader(user),
         Expanded(
           child: ListView(
             children: [
-              ListTile(
-                title: const Text('0.0.1'),
-                onTap: () {},
-              ),
+              // ListTile(
+              //   title: const Text('0.0.1'),
+              //   onTap: () {},
+              // ),
+              themeToggle(),
               createDrawerItem(
-                  icon: Icons.logout, text: 'Logout', onTap: () => {}),
+                  icon: Icons.more_horiz, text: 'More', onTap: () => {}),
             ],
           ),
         ),
@@ -47,6 +48,7 @@ class DrawerPage extends ConsumerWidget {
     ));
   }
 }
+
 
 Widget createHeader(User user) {
   return DrawerHeader(
@@ -92,6 +94,21 @@ Widget createDrawerItem(
         Padding(
           padding: const EdgeInsets.only(left: 8.0),
           child: Text(text!),
+        )
+      ],
+    ),
+    onTap: onTap,
+  );
+}
+
+Widget themeToggle({IconData? icon, String? text, GestureTapCallback? onTap}) {
+  return ListTile(
+    title: Row(
+      children: <Widget>[
+        ActionChip(
+          label: const Text("Lights On"),
+          onPressed: () {},
+          avatar: const Icon(Icons.brightness_5),
         )
       ],
     ),
