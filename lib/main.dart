@@ -6,6 +6,7 @@ import 'package:riverpod_flutter_register_login_firebase/pages/auth_widget.dart'
 import 'package:riverpod_flutter_register_login_firebase/pages/sign_in_page/sign_in_page.dart';
 import 'package:riverpod_flutter_register_login_firebase/routing/app_router.dart';
 
+import 'constants/theme_data.dart';
 import 'pages/account_page/account_page.dart';
 import 'providers/providers.dart';
 
@@ -26,7 +27,7 @@ class MyApp extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final firebaseAuth = ref.watch(firebaseAuthProvider);
     return MaterialApp(
-      theme: ThemeData(primarySwatch: Colors.indigo),
+      theme: AppTheme.light,
       debugShowCheckedModeBanner: false,
       home: AuthWidget(
         nonSignedInBuilder: (_) => const SignInPage(),

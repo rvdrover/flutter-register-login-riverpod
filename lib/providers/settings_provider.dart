@@ -10,9 +10,6 @@ class SettingsNotifier extends StateNotifier<SettingsState> {
 
   
   void setTheme(String theme) async {
-    state = SettingsState.loading();
-    await read(flutterDatabase).write(key: "theme", value: theme);
-    details = details.copyWith(themeMode: theme);
-    state = SettingsState.data(details: details);
+    
   }
 }
