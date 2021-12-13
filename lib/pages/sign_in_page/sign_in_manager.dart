@@ -13,6 +13,4 @@ final firebaseAuthServicesProvider =
     Provider<FirebaseAuthServices>((ref) => FirebaseAuthServices());
 
 final signInManagerProvider =
-    StateNotifierProvider<SignInManager, SignIn>((ref) {
-  return SignInManager();
-});
+    StateNotifierProvider<SignInNotifier, SignIn>((ref) => SignInNotifier());

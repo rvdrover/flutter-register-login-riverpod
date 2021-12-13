@@ -1,19 +1,8 @@
-// import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-// class Theme {
-//   List<bool> isSelected;
+class AppThemeNotifier extends StateNotifier<bool> {
+  AppThemeNotifier(): super(false);
 
-
-
-//   Theme(
-//      {this.isSelected,}
-//   );
-
-
-// }
-
-// class SettingsNotifier extends StateNotifier<Theme> {
-//   SettingsNotifier() : super(Theme());
-
-//   void setTheme(String theme) async {}
-// }
+  void setLightTheme() => state = false;
+  void setDarkTheme() => state = true;
+}
