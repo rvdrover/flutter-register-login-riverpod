@@ -2,7 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_flutter_register_login_firebase/constants/commen_strings.dart';
-import 'package:riverpod_flutter_register_login_firebase/providers/providers.dart';
+import 'package:riverpod_flutter_register_login_firebase/pages/sign_in_page/sign_in_manager.dart';
 import 'package:riverpod_flutter_register_login_firebase/services/firebase_auth_services.dart';
 import 'package:riverpod_flutter_register_login_firebase/widgets/alerts/alert_dialogs.dart';
 
@@ -105,10 +105,8 @@ Widget themeToggle({IconData? icon, String? text, GestureTapCallback? onTap}) {
   return ListTile(
     title: Row(
       children: <Widget>[
-        ActionChip(
-          label: const Text("Lights On"),
-          onPressed: () {},
-          avatar: const Icon(Icons.brightness_5),
+        ToggleButtons(isSelected: [],
+        children: [],
         )
       ],
     ),

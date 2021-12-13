@@ -1,15 +1,19 @@
-  
-  import 'package:flutter_riverpod/flutter_riverpod.dart';
+// import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class SettingsNotifier extends StateNotifier<SettingsState> {
+// class Theme {
+//   List<bool> isSelected;
 
 
-  SettingsNotifier(this.read) : super(SettingsState.initial()) {
-    loadData();
-  }
 
-  
-  void setTheme(String theme) async {
-    
-  }
-}
+//   Theme(
+//      {this.isSelected,}
+//   );
+
+
+// }
+
+// class SettingsNotifier extends StateNotifier<Theme> {
+//   SettingsNotifier() : super(Theme());
+
+//   void setTheme(String theme) async {}
+// }
