@@ -17,8 +17,8 @@ class SignIn {
   });
 }
 
-class SignInManager extends StateNotifier<SignIn> {
-  SignInManager() : super(SignIn());
+class SignInNotifier extends StateNotifier<SignIn> {
+  SignInNotifier() : super(SignIn());
 
   final FirebaseAuthServices firebaseAuthServices = FirebaseAuthServices();
 

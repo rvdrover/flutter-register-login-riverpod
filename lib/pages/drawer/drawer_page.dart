@@ -2,11 +2,13 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_flutter_register_login_firebase/constants/commen_strings.dart';
-import 'package:riverpod_flutter_register_login_firebase/pages/sign_in_page/sign_in_manager.dart';
+import 'package:riverpod_flutter_register_login_firebase/providers/setting_provider/settings_provider.dart';
+import 'package:riverpod_flutter_register_login_firebase/providers/sign_in_provider/sign_in_provider.dart';
 import 'package:riverpod_flutter_register_login_firebase/services/firebase_auth_services.dart';
 import 'package:riverpod_flutter_register_login_firebase/widgets/alerts/alert_dialogs.dart';
 
 import 'package:riverpod_flutter_register_login_firebase/widgets/avatar/avatar.dart';
+import 'package:riverpod_flutter_register_login_firebase/widgets/theme/theme_toggle.dart';
 
 class DrawerPage extends ConsumerWidget {
   const DrawerPage({
@@ -18,6 +20,8 @@ class DrawerPage extends ConsumerWidget {
     final firebaseAuth = ref.watch(firebaseAuthProvider);
     final user = firebaseAuth.currentUser!;
     final firebaseAuthServices = ref.watch(firebaseAuthServicesProvider);
+    final themeMode = ref.watch(settingsProvider);
+    final themeModeNotifier = ref.watch(settingsProvider.notifier);
     return Drawer(
         child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -26,11 +30,12 @@ class DrawerPage extends ConsumerWidget {
         Expanded(
           child: ListView(
             children: [
-              // ListTile(
-              //   title: const Text('0.0.1'),
-              //   onTap: () {},
-              // ),
-              themeToggle(),
+              ListTile(
+                title: const Text('0.0.1'),
+                onTap: () {},
+              ),
+              ThemeToggle(
+                  themeMode: themeMode, themeModeNotifier: themeModeNotifier),
               createDrawerItem(
                   icon: Icons.more_horiz, text: 'More', onTap: () => {}),
             ],
@@ -48,6 +53,7 @@ class DrawerPage extends ConsumerWidget {
     ));
   }
 }
+
 
 
 Widget createHeader(User user) {
@@ -94,19 +100,6 @@ Widget createDrawerItem(
         Padding(
           padding: const EdgeInsets.only(left: 8.0),
           child: Text(text!),
-        )
-      ],
-    ),
-    onTap: onTap,
-  );
-}
-
-Widget themeToggle({IconData? icon, String? text, GestureTapCallback? onTap}) {
-  return ListTile(
-    title: Row(
-      children: <Widget>[
-        ToggleButtons(isSelected: [],
-        children: [],
         )
       ],
     ),

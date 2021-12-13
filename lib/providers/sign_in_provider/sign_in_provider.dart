@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:riverpod_flutter_register_login_firebase/providers/sign_in_provider.dart';
+import 'package:riverpod_flutter_register_login_firebase/providers/sign_in_provider/sign_in_notifier.dart';
 import 'package:riverpod_flutter_register_login_firebase/services/firebase_auth_services.dart';
 
 final firebaseAuthProvider =

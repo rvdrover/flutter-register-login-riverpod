@@ -4,11 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_flutter_register_login_firebase/pages/auth_widget.dart';
 import 'package:riverpod_flutter_register_login_firebase/pages/sign_in_page/sign_in_page.dart';
+import 'package:riverpod_flutter_register_login_firebase/providers/setting_provider/settings_provider.dart';
+import 'package:riverpod_flutter_register_login_firebase/providers/sign_in_provider/sign_in_provider.dart';
 import 'package:riverpod_flutter_register_login_firebase/routing/app_router.dart';
 
 import 'constants/theme_data.dart';
 import 'pages/account_page/account_page.dart';
-import 'pages/sign_in_page/sign_in_manager.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -26,10 +27,11 @@ class MyApp extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final firebaseAuth = ref.watch(firebaseAuthProvider);
+    final themeMode = ref.watch(settingsProvider);
     return MaterialApp(
       theme: AppTheme.light,
       darkTheme: AppTheme.dark,
-      themeMode: ThemeMode.system,
+      themeMode: themeMode ? ThemeMode.dark : ThemeMode.light,
       debugShowCheckedModeBanner: false,
       home: AuthWidget(
         nonSignedInBuilder: (_) => const SignInPage(),
