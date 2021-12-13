@@ -1,8 +1,18 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class SettingsNotifier extends StateNotifier<bool> {
-  SettingsNotifier(): super(false);
+class Theme {
+  final ThemeMode themeMode;
+  final bool isToggle;
 
-  void setLightTheme() => state = false;
-  void setDarkTheme() => state = true;
+  Theme({this.isToggle = false, this.themeMode = ThemeMode.system});
+}
+
+class SettingsNotifier extends StateNotifier<Theme> {
+  SettingsNotifier() : super(Theme()){
+setLightTheme();
+  }
+
+  void setLightTheme() => state = Theme(isToggle: false,themeMode: ThemeMode.light);
+  void setDarkTheme() => state = Theme(isToggle: true,themeMode: ThemeMode.dark);
 }

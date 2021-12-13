@@ -31,7 +31,7 @@ class MyApp extends ConsumerWidget {
     return MaterialApp(
       theme: AppTheme.light,
       darkTheme: AppTheme.dark,
-      themeMode: themeMode ? ThemeMode.dark : ThemeMode.light,
+      themeMode: themeMode.themeMode,
       debugShowCheckedModeBanner: false,
       home: AuthWidget(
         nonSignedInBuilder: (_) => const SignInPage(),

@@ -35,7 +35,7 @@ class DrawerPage extends ConsumerWidget {
                 onTap: () {},
               ),
               ThemeToggle(
-                  themeMode: themeMode, themeModeNotifier: themeModeNotifier),
+                  themeMode: themeMode.isToggle, themeModeNotifier: themeModeNotifier),
               createDrawerItem(
                   icon: Icons.more_horiz, text: 'More', onTap: () => {}),
             ],
