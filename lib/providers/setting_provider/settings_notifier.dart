@@ -3,15 +3,15 @@ import 'package:flutter/scheduler.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class Theme {
+class ThemeClass {
   final ThemeMode themeMode;
   final bool isToggle;
 
-  Theme({this.isToggle = false, this.themeMode = ThemeMode.system});
+  ThemeClass({this.isToggle = false, this.themeMode = ThemeMode.system});
 }
 
-class SettingsNotifier extends StateNotifier<Theme> {
-  SettingsNotifier() : super(Theme()) {
+class SettingsNotifier extends StateNotifier<ThemeClass> {
+  SettingsNotifier() : super(ThemeClass()) {
     toggle();
   }
   SharedPreferences? prefs;
@@ -26,22 +26,22 @@ class SettingsNotifier extends StateNotifier<Theme> {
     bool _toggle = prefs?.getBool("toggle") ?? state.isToggle;
 
     if (_theme == 0 && isLightMode) {
-      _toggle = false;
+      setLightTheme();
     } else if (_theme == 0 && isDarkMode) {
-      _toggle = true;
+      setDarkTheme();
     }
-    state = Theme(isToggle: _toggle, themeMode: ThemeMode.values[_theme]);
+    state = ThemeClass(isToggle: _toggle, themeMode: ThemeMode.values[_theme]);
     return _toggle;
   }
 
   Future<void> setLightTheme() async {
-    state = Theme(isToggle: false, themeMode: ThemeMode.light);
+    state = ThemeClass(isToggle: false, themeMode: ThemeMode.light);
     await prefs?.setInt("theme", state.themeMode.index);
     await prefs?.setBool("toggle", state.isToggle);
   }
 
   Future<void> setDarkTheme() async {
-    state = Theme(isToggle: true, themeMode: ThemeMode.dark);
+    state = ThemeClass(isToggle: true, themeMode: ThemeMode.dark);
     await prefs?.setInt("theme", state.themeMode.index);
     await prefs?.setBool("toggle", state.isToggle);
   }

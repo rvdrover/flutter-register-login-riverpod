@@ -16,7 +16,6 @@ class ThemeToggle extends StatelessWidget {
     return ListTile(
       title: Row(
         children: <Widget>[
-          
           Switch(
             value: themeMode,
             onChanged: (val) {
