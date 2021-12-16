@@ -6,18 +6,22 @@ class AppTheme {
       color: Colors.blueGrey,
     ),
     brightness: Brightness.light,
-    scaffoldBackgroundColor: Colors.white,
     unselectedWidgetColor: Colors.black45,
     focusColor: Colors.black,
+    primarySwatch: Colors.orange,
+    primaryColor: Colors.orange[500],
+    primaryColorBrightness: Brightness.light,
+    scaffoldBackgroundColor: Colors.grey[200],
   );
 
   static final ThemeData dark = ThemeData(
-    primaryColor: Colors.black12,
     appBarTheme: const AppBarTheme(
       color: Colors.black,
     ),
     brightness: Brightness.dark,
-    scaffoldBackgroundColor: Colors.black,
     focusColor: Colors.white,
+  primaryColor: Colors.red,
+  primaryColorBrightness: Brightness.dark,
+  scaffoldBackgroundColor: Colors.grey[850],
   );
 }
