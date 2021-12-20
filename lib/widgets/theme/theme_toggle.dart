@@ -16,11 +16,12 @@ class ThemeToggle extends StatelessWidget {
     return ListTile(
       title: Row(
         children: <Widget>[
+          const Text('White'),
           Switch(
-            inactiveTrackColor: Colors.black54,
-            inactiveThumbColor: Colors.black,
-            activeColor: Colors.white,
-            activeTrackColor: Colors.white54,
+            inactiveTrackColor:Colors.black12 ,
+            inactiveThumbColor: Colors.white10,
+            activeColor:  Colors.black87,
+            activeTrackColor:  Colors.black45,
             value: themeMode,
             onChanged: (val) {
               if (val) {
@@ -29,7 +30,7 @@ class ThemeToggle extends StatelessWidget {
                 themeModeNotifier.setLightTheme();
               }
             },
-          )
+          ),const Text('Dark'),
         ],
       ),
     );

@@ -30,10 +30,10 @@ class DrawerPage extends ConsumerWidget {
         Expanded(
           child: ListView(
             children: [
-              ListTile(
-                title: const Text('0.0.1'),
-                onTap: () {},
-              ),
+              // ListTile(
+              //   title: const Text('0.0.1'),
+              //   onTap: () {},
+              // ),
               ThemeToggle(
                   themeMode: themeMode.isToggle, themeModeNotifier: themeModeNotifier),
               createDrawerItem(
