@@ -17,6 +17,10 @@ class ThemeToggle extends StatelessWidget {
       title: Row(
         children: <Widget>[
           Switch(
+            inactiveTrackColor: Colors.black54,
+            inactiveThumbColor: Colors.black,
+            activeColor: Colors.white,
+            activeTrackColor: Colors.white54,
             value: themeMode,
             onChanged: (val) {
               if (val) {
