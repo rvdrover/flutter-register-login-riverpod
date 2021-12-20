@@ -38,6 +38,17 @@ class DrawerPage extends ConsumerWidget {
                   themeMode: themeMode.isToggle, themeModeNotifier: themeModeNotifier),
               createDrawerItem(
                   icon: Icons.more_horiz, text: 'More', onTap: () => {}),
+                  createDrawerItem(
+                  icon: Icons.more_horiz, text: 'More', onTap: () => {}),createDrawerItem(
+                  icon: Icons.more_horiz, text: 'More', onTap: () => {}),createDrawerItem(
+                  icon: Icons.more_horiz, text: 'More', onTap: () => {}),createDrawerItem(
+                  icon: Icons.more_horiz, text: 'More', onTap: () => {}),createDrawerItem(
+                  icon: Icons.more_horiz, text: 'More', onTap: () => {}),createDrawerItem(
+                  icon: Icons.more_horiz, text: 'More', onTap: () => {}),createDrawerItem(
+                  icon: Icons.more_horiz, text: 'More', onTap: () => {}),createDrawerItem(
+                  icon: Icons.more_horiz, text: 'More', onTap: () => {}),createDrawerItem(
+                  icon: Icons.more_horiz, text: 'More', onTap: () => {}),createDrawerItem(
+                  icon: Icons.more_horiz, text: 'More', onTap: () => {}),
             ],
           ),
         ),
