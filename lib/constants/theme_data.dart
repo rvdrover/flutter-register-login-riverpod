@@ -8,8 +8,6 @@ class AppTheme {
     brightness: Brightness.light,
     unselectedWidgetColor: Colors.black45,
     focusColor: Colors.black,
-    primarySwatch: Colors.orange,
-    primaryColor: Colors.orange[500],
     primaryColorBrightness: Brightness.light,
     scaffoldBackgroundColor: Colors.grey[200],
   );
@@ -20,7 +18,6 @@ class AppTheme {
     ),
     brightness: Brightness.dark,
     focusColor: Colors.white,
-  primaryColor: Colors.red,
   primaryColorBrightness: Brightness.dark,
   scaffoldBackgroundColor: Colors.grey[850],
   );

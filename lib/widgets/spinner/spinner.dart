@@ -6,28 +6,25 @@ class Spinner extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: const BoxDecoration(color: Colors.blueAccent),
-      child: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: const [
-            SpinKitPulse(
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: const [
+          SpinKitPulse(
+            color: Colors.black87,
+            size: 60,
+          ),
+          SizedBox(
+            height: 5,
+          ),
+          Text(
+            "Loading...",
+            style: TextStyle(
+              fontSize: 12,
               color: Colors.white,
-              size: 60,
             ),
-            SizedBox(
-              height: 5,
-            ),
-            Text(
-              "Loading...",
-              style: TextStyle(
-                fontSize: 12,
-                color: Colors.white,
-              ),
-            )
-          ],
-        ),
+          )
+        ],
       ),
     );
   }

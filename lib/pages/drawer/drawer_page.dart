@@ -80,6 +80,7 @@ Widget createHeader(User user) {
           left: 10,
           top: 20,
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Avatar(
                 radius: 40,
@@ -94,6 +95,11 @@ Widget createHeader(User user) {
                   style: const TextStyle(color: Colors.white),
                 ),
               const SizedBox(height: 8),
+              if (user.email != null)
+                Text(
+                  user.email!,
+                  style: const TextStyle(color: Colors.white),
+                )
             ],
           ),
         )
