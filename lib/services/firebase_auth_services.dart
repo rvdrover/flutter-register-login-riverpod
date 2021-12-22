@@ -62,6 +62,7 @@ class FirebaseAuthServices {
 
     final authResult = await twitterLogin.login();
     if (authResult.status == TwitterLoginStatus.loggedIn) {
+      print("Loged twiter");
       final twitterAuthCredential = TwitterAuthProvider.credential(
         accessToken: authResult.authToken!,
         secret: authResult.authTokenSecret!,
