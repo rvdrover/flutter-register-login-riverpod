@@ -20,7 +20,7 @@ Help of Andrea Bizzotto Statrter Architecture https://github.com/bizz84/starter_
 
 
 ### Use Packages
-*  firebase_auth: ^3.3.3 ![](https://pub.dev/packages/firebase_auth)
+*  firebase_auth: ^3.3.3 ![fffffffffffffffff](https://pub.dev/packages/firebase_auth)
 *  flutter_riverpod: ^1.0.2
 *  flutter_facebook_auth: ^3.5.7
 *  google_sign_in: ^5.2.1
