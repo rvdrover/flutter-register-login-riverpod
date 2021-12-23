@@ -6,3 +6,14 @@ Markup : * icon or image custom button
 
 ![](https://github.com/rvdrover/flutter-register-login-riverpod/blob/53f74220d08d0487f51b55cce6c6b22c3b0ce78a/readme_asset/riverpod_flutter_register_login_firebase-1640266496904.gif)
 
+ Markup : * Bullet list
+              * Nested bullet
+                  * Sub-nested bullet etc
+          * Bullet list item 2
+
+-OR-
+
+ Markup : - Bullet list
+              - Nested bullet
+                  - Sub-nested bullet etc
+          - Bullet list item 2 
