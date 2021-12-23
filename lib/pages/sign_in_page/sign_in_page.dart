@@ -82,14 +82,14 @@ class SignInPageContents extends StatelessWidget {
                                 ? null
                                 : () => _showEmailPasswordSignInPage(context),
                             textColor: Colors.white,
-                            buttonColor: Theme.of(context).primaryColor,
+                            buttonColor: const Color(0xffBE2826),
                             icon: Icons.email,
                           ),
                           const SizedBox(height: 8),
                           SubmitButton(
                             key: googlesignButtonKey,
                             text: Strings.signinWithGoogle,
-                            buttonColor: Theme.of(context).primaryColor,
+                            buttonColor: const Color(0xffDB4C3F),
                             textColor: Colors.white,
                             imagePath: ('assets/images/google-logo.png'),
                             onPressed: signIn.isLoading
@@ -100,7 +100,7 @@ class SignInPageContents extends StatelessWidget {
                           SubmitButton(
                             key: facebookSignButtonKey,
                             text: Strings.signinWithFacebook,
-                            buttonColor: Theme.of(context).primaryColor,
+                            buttonColor: const Color(0xff415DAE),
                             textColor: Colors.white,
                             imagePath: ('assets/images/facebook-logo.png'),
                             onPressed: signIn.isLoading
@@ -111,7 +111,7 @@ class SignInPageContents extends StatelessWidget {
                           SubmitButton(
                             key: twitterSignButtonKey,
                             text: Strings.signinWithTwitter,
-                            buttonColor: Theme.of(context).primaryColor,
+                            buttonColor: const Color(0xff50ABF1),
                             textColor: Colors.white,
                             imagePath: ('assets/images/twitter-logo.png'),
                             onPressed: signIn.isLoading
@@ -122,7 +122,7 @@ class SignInPageContents extends StatelessWidget {
                           SubmitButton(
                             key: githubSignButtonKey,
                             text: Strings.signinWithGithub,
-                            buttonColor: Theme.of(context).primaryColor,
+                            buttonColor: const Color(0xff444444),
                             textColor: Colors.white,
                             imagePath: ('assets/images/github-logo.png'),
                             onPressed: () => signIn.isLoading
@@ -140,7 +140,7 @@ class SignInPageContents extends StatelessWidget {
                           SubmitButton(
                             key: anonymousButtonKey,
                             text: Strings.signAnonymous,
-                            buttonColor: Theme.of(context).primaryColor,
+                            buttonColor: const Color(0xff415DAE),
                             textColor: Colors.white,
                             imagePath: ('assets/images/anonymous-logo.png'),
                             onPressed: signIn.isLoading
