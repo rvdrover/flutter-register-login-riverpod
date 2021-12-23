@@ -5,7 +5,7 @@ Help of Andrea Bizzotto Statrter Architecture https://github.com/bizz84/starter_
 ## This is full functional firebase Sign in example. Use riverpod for State Management.
 
 ### Options
-* Custom button(Icon or image Changeble)
+* Custom button(Icon or image Changeable)
 * Profile Drawer
 * Dynamic Theme
 
