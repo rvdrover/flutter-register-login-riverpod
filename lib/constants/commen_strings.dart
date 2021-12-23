@@ -12,7 +12,7 @@ class Strings {
   // Sign In Page
   static const String signIn = 'Sign in';
   static const String signInWithEmailPassword =
-      'Sign in with Email and Password';
+      'Sign in with Email';
   static const String signAnonymous = 'Sign Anonymous';
   static const String signinWithGoogle = 'Sign in with Google';
   static const String signinWithFacebook = 'Sign in with Facebook';
