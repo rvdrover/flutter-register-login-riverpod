@@ -140,7 +140,7 @@ class SignInPageContents extends StatelessWidget {
                           SubmitButton(
                             key: anonymousButtonKey,
                             text: Strings.signAnonymous,
-                            buttonColor: const Color(0xff415DAE),
+                            buttonColor: const Color(0xff232427),
                             textColor: Colors.white,
                             imagePath: ('assets/images/anonymous-logo.png'),
                             onPressed: signIn.isLoading
