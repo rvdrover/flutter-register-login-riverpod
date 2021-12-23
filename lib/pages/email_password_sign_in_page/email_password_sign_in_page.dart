@@ -192,6 +192,7 @@ class _EmailPasswordSignInPageState extends State<EmailPasswordSignInPage> {
               key: const Key('primary-button'),
               text: model.primaryButtonText,
               onPressed: model.isLoading ? null : _submit,
+              buttonColor: const Color(0xffDB4C3F),
             ),
             const SizedBox(height: 8.0),
             TextButton(

@@ -27,23 +27,34 @@ class DrawerPage extends ConsumerWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         createHeader(user),
+        ThemeToggle(
+                  themeMode: themeMode.isToggle,
+                  themeModeNotifier: themeModeNotifier),
         Expanded(
           child: ListView(
             children: [
-              ThemeToggle(
-                  themeMode: themeMode.isToggle, themeModeNotifier: themeModeNotifier),
+              
               createDrawerItem(
                   icon: Icons.more_horiz, text: 'More', onTap: () => {}),
-                  createDrawerItem(
-                  icon: Icons.more_horiz, text: 'More', onTap: () => {}),createDrawerItem(
-                  icon: Icons.more_horiz, text: 'More', onTap: () => {}),createDrawerItem(
-                  icon: Icons.more_horiz, text: 'More', onTap: () => {}),createDrawerItem(
-                  icon: Icons.more_horiz, text: 'More', onTap: () => {}),createDrawerItem(
-                  icon: Icons.more_horiz, text: 'More', onTap: () => {}),createDrawerItem(
-                  icon: Icons.more_horiz, text: 'More', onTap: () => {}),createDrawerItem(
-                  icon: Icons.more_horiz, text: 'More', onTap: () => {}),createDrawerItem(
-                  icon: Icons.more_horiz, text: 'More', onTap: () => {}),createDrawerItem(
-                  icon: Icons.more_horiz, text: 'More', onTap: () => {}),createDrawerItem(
+              createDrawerItem(
+                  icon: Icons.more_horiz, text: 'More', onTap: () => {}),
+              createDrawerItem(
+                  icon: Icons.more_horiz, text: 'More', onTap: () => {}),
+              createDrawerItem(
+                  icon: Icons.more_horiz, text: 'More', onTap: () => {}),
+              createDrawerItem(
+                  icon: Icons.more_horiz, text: 'More', onTap: () => {}),
+              createDrawerItem(
+                  icon: Icons.more_horiz, text: 'More', onTap: () => {}),
+              createDrawerItem(
+                  icon: Icons.more_horiz, text: 'More', onTap: () => {}),
+              createDrawerItem(
+                  icon: Icons.more_horiz, text: 'More', onTap: () => {}),
+              createDrawerItem(
+                  icon: Icons.more_horiz, text: 'More', onTap: () => {}),
+              createDrawerItem(
+                  icon: Icons.more_horiz, text: 'More', onTap: () => {}),
+              createDrawerItem(
                   icon: Icons.more_horiz, text: 'More', onTap: () => {}),
             ],
           ),
@@ -60,8 +71,6 @@ class DrawerPage extends ConsumerWidget {
     ));
   }
 }
-
-
 
 Widget createHeader(User user) {
   return DrawerHeader(
